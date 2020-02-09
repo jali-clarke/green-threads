@@ -11,6 +11,7 @@ typedef struct rts_state {
 } rts_state;
 
 typedef struct workload {
+    gthread_t *_gthread;
     sem_t *_semaphore;
     void *(* _callback)(void *);
     void *_data;
@@ -57,6 +58,7 @@ int gthread_create(gthread_t *thread, const gthread_attr_t *attr, void *(* start
     thread->_semaphore = semaphore;
 
     workload *to_execute = malloc(sizeof(workload));
+    to_execute->_gthread = thread;
     to_execute->_semaphore = semaphore;
     to_execute->_callback = start_routine;
     to_execute->_data = arg;
@@ -67,5 +69,7 @@ int gthread_create(gthread_t *thread, const gthread_attr_t *attr, void *(* start
 }
 
 int gthread_join(gthread_t thread, void **retval){
-    return sem_wait(thread._semaphore);
+    int wait_status = sem_wait(thread._semaphore);
+    sem_destroy(thread._semaphore);
+    return wait_status;
 }
