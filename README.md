@@ -2,7 +2,7 @@
 
 ## what is this
 
-Simple green threads implementation in C.  I wanted to create green threads versions of `pthread_create` and `pthread_join`.  Check out [green_threads.h](./inc/green_threads.h) for interface definitions and [green_threads.c](./src/green_threads.c) for implementation.
+Simple green threads implementation in C.  I wanted to create green threads versions of `pthread_create` and `pthread_join`.  Check out [green_threads.h](./inc/green_threads.h) for interface definitions and [green_threads.c](./src/green_threads.c) for implementation.  Basically no error checking is done though - just wanted to explore the idea.
 
 ## long story short
 
