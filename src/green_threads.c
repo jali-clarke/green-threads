@@ -26,7 +26,7 @@ void *_worker_thread_routine(void *ignored){
         void *(* callback)(void *) = to_run->_callback;
         void *data = to_run->_data;
 
-        callback(data);
+        to_run->_gthread->_retval = callback(data);
 
         sem_post(to_run->_semaphore);
         free(to_run);
