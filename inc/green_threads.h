@@ -9,7 +9,7 @@ typedef struct {
 
 typedef void gthread_attr_t;
 
-int gthread_create(gthread_t *thread, const gthread_attr_t *attr, void *(*start_routine)(void *), void *arg);
-int gthread_join(gthread_t thread, void **retval);
+int gthread_create(gthread_t *thread, const gthread_attr_t *ignored, void *(*start_routine)(void *), void *arg);
+int gthread_join(gthread_t thread, void **ignored);
 
 #endif
