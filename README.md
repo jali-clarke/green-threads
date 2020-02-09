@@ -19,6 +19,3 @@ gcc, pthreads lib
 ## etc
 
 Also included is a toy implementation for promises.  Just used for the benchmark.
-
-## todo
-* set cpu affinity for worker pthreads
