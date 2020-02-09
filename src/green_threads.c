@@ -50,7 +50,7 @@ void _gthread_init(int num_workers, int queue_size){
 
 int gthread_create(gthread_t *thread, const gthread_attr_t *attr, void *(* start_routine)(void *), void *arg){
     // below macros from D flag - see Makefile
-    _gthread_init(GREEN_WORKERS, GREEN_QUEUE_SIZE);
+    _gthread_init(GREEN_NUM_CPUS, GREEN_QUEUE_SIZE);
 
     sem_t *semaphore = malloc(sizeof(sem_t));
     sem_init(semaphore, 0, 0);

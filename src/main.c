@@ -1,4 +1,4 @@
-#ifdef GREEN_WORKERS
+#ifdef GREEN_NUM_CPUS
     #include "green_threads.h"
     #define thread_impl_t gthread_t
     #define thread_impl_create gthread_create

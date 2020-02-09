@@ -1,9 +1,9 @@
 .PHONY: clean, os_threads, green_threads, compare
 
-GREEN_WORKERS ?= $(shell lscpu | sed -nr 's/^CPU\(s\):[^0-9]*([0-9]+)$$/\1/p')
+GREEN_NUM_CPUS ?= $(shell lscpu | sed -nr 's/^CPU\(s\):[^0-9]*([0-9]+)$$/\1/p')
 GREEN_QUEUE_SIZE ?= 128
 
-GREEN_FLAGS = -DGREEN_WORKERS=$(GREEN_WORKERS) -DGREEN_QUEUE_SIZE=$(GREEN_QUEUE_SIZE)
+GREEN_FLAGS = -DGREEN_NUM_CPUS=$(GREEN_NUM_CPUS) -DGREEN_QUEUE_SIZE=$(GREEN_QUEUE_SIZE)
 
 GCC = gcc -Iinc
 
