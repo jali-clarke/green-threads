@@ -35,13 +35,13 @@ void *_worker_thread_routine(void *ignored){
     return NULL;
 }
 
-void _gthread_init(int num_workers, int queue_size){
+void _gthread_init(int num_cpus, int queue_size){
     if(_rts_state == NULL){
         _rts_state = malloc(sizeof(rts_state));
-        _rts_state->_workers = malloc(num_workers * sizeof(pthread_t));
+        _rts_state->_workers = malloc(num_cpus * sizeof(pthread_t));
         _rts_state->_work_queue = sync_queue_new(queue_size);
 
-        for(int worker_index = 0; worker_index < num_workers; worker_index++){
+        for(int worker_index = 0; worker_index < num_cpus; worker_index++){
             pthread_create(_rts_state->_workers + worker_index, NULL, _worker_thread_routine, NULL);
             pthread_detach(_rts_state->_workers[worker_index]);
         }
