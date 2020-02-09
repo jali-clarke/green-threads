@@ -71,5 +71,10 @@ int gthread_create(gthread_t *thread, const gthread_attr_t *attr, void *(* start
 int gthread_join(gthread_t thread, void **retval){
     int wait_status = sem_wait(thread._semaphore);
     sem_destroy(thread._semaphore);
+
+    if(retval != NULL){
+        *retval = thread._retval;
+    }
+
     return wait_status;
 }

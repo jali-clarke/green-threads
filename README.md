@@ -2,7 +2,7 @@
 
 ## what is this
 
-Simple green threads implementation in C.  I wanted to create green threads versions of `pthread_create` and `pthread_join`.  Check out [green_threads.h](./inc/green_threads.h) for interface definitions and [green_threads.c](./src/green_threads.c) for implementation.  For now, you cannot use `retval` on join - was too lazy to implement that.
+Simple green threads implementation in C.  I wanted to create green threads versions of `pthread_create` and `pthread_join`.  Check out [green_threads.h](./inc/green_threads.h) for interface definitions and [green_threads.c](./src/green_threads.c) for implementation.
 
 ## long story short
 
@@ -21,5 +21,4 @@ gcc, pthreads lib
 Also included is a toy implementation for promises.  Just used for the benchmark.
 
 ## todo
-* use `retval` on join
 * set cpu affinity for worker pthreads
